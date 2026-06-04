@@ -27,6 +27,11 @@ setInterval(updateTime, 1000);
 function updateCity(event) {
 
     let inputZone = event.target.value   //taking selected city to display timezone
+    if(inputZone === "current"){
+        inputZone = moment.tz.guess()
+        console.log(inputZone)
+    }
+
     let cityName = inputZone.replace("_", " ").split("/")[1]    //if its New_York, it will be New York
     let time = moment().tz(inputZone)  //through moment, time of that specific timezone is displayed
 
